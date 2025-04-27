@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/api/src",
+  "monorepo": true,
+  "root": "apps/api",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/api/tsconfig.app.json"
+  },
+  "projects": {
+    "api": {
+      "type": "application",
+      "root": "apps/api",
+      "entryFile": "main",
+      "sourceRoot": "apps/api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api/tsconfig.app.json"
+      }
+    },
+    "repl": {
+      "type": "application",
+      "root": "apps/api",
+      "entryFile": "repl",
+      "sourceRoot": "apps/api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api/tsconfig.app.json"
+      }
+    },
+    "messaging": {
+      "type": "application",
+      "root": "apps/messaging",
+      "entryFile": "main",
+      "sourceRoot": "apps/messaging/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/messaging/tsconfig.app.json"
+      }
+    },
+    "delay": {
+      "type": "application",
+      "root": "apps/delay",
+      "entryFile": "main",
+      "sourceRoot": "apps/delay/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/delay/tsconfig.app.json"
+      }
+	  },
+    "shared-config": {
+      "type": "library",
+      "root": "libs/shared-config",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared-config/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared-config/tsconfig.lib.json"
+      }
+    }
+  }
+}

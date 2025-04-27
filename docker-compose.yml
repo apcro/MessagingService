@@ -1,0 +1,83 @@
+version: '3.8'
+services:
+  api:
+    build:
+      dockerfile: ./apps/api/Dockerfile
+      context: .
+      target: development
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    command: npm run start:api:dev
+    ports:
+      - 3005:3005
+      - 9229:9229
+    depends_on:
+      - redis
+      - sqs
+  messaging:
+    build:
+      dockerfile: ./apps/messaging/Dockerfile
+      context: .
+      target: development
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    command: npm run start:messaging:dev
+    ports:
+      - 3006:3006
+      - 9230:9229
+    depends_on:
+      - redis
+      - sqs
+  delay:
+    build:
+      dockerfile: ./apps/delay/Dockerfile
+      context: .
+      target: development
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    command: npm run start:delay:dev
+    ports:
+      - 3007:3007
+      - 9231:9229
+    depends_on:
+      - redis
+      - sqs
+      # - scylla
+  # web:
+  #   build:
+  #     dockerfile: ./apps/web/Dockerfile
+  #     context: .
+  #     target: development
+  #   volumes:
+  #     - .:/app
+  #   env_file:
+  #     - .env
+  #   command: npm run start:web:dev
+  #   ports:
+  #     - 8080:8080
+  #     - 9232:9229
+  #   depends_on:
+  #     - redis
+  #     - sqs
+  #     # - scylla
+  redis:
+    extends:
+      file: docker-compose.storage.yml
+      service: redis
+  sqs:
+    extends:
+      file: docker-compose.storage.yml
+      service: sqs
+  # scylla:
+  #   extends:
+  #     file: docker-compose.storage.yml
+  #     service: scylla
+volumes:
+  redis-data:
+  # scylla-data:

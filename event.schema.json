@@ -1,0 +1,14 @@
+{
+    "id": "",
+    "created_at": "",
+    "type": "string",
+    "resource_name": "{resouce-name}",
+    "resource_id": "{resource-id}",
+    "version": "V1.0",
+    "origin": "{sending-service-name}",
+    "data": {
+        "userid": "1",
+        "field1": "",
+        "field2": ""
+    }
+}

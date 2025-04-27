@@ -1,0 +1,6 @@
+export const CACHE_CONFIG_TOKEN = 'cache'
+export const SQS_CONFIG_TOKEN = 'sqs'
+export const PROCESSING_QUEUE_NAME = 'background-processing'
+export const DELAY_QUEUE_NAME = 'delay-processing'
+export const SQS_PROCESSING_QUEUE_TOKEN = 'sqs-processing-queue-token'
+export const SQS_DELAY_QUEUE_TOKEN = 'sqs-delay-queue-token'

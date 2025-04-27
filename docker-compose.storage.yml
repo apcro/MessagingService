@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  redis:
+    image: redis:alpine
+    command: redis-server --appendonly yes --port 6380
+    ports:
+      - 6380:6380
+    expose:
+      - 6380
+    volumes:
+      - redis-data:/var/lib/redis
+    restart: always
+  sqs:
+    image: softwaremill/elasticmq-native
+    volumes:
+      - ./elasticmq.conf:/opt/elasticmq.conf
+    ports:
+      - 9324:9324
+      - 9325:9325
+  scylla:
+    image: scylladb/scylla
+    ports:
+     - 9042:9042
+    volumes:
+     - scylla-data:/var/lib/scylla
+    restart: always
+volumes:
+  redis-data:
+  scylla-data:
