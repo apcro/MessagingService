@@ -39,7 +39,9 @@ The root directory is mounted to the container volume so when code is updated th
 
 The `api`, `messaging` and `delay` apps, when run in development mode expose a debugger. If you are using VSCode you can simply start the debugger and select which app you'd like to attach a debugger to.
 
-> [!NOTE] The debug configuration in VSCode is set to attach, not launch. You need to run `yarn start:dev` before starting your debugger_
+> [!NOTE]
+> The debug configuration in VSCode is set to attach, not launch.
+> You need to run `yarn start:dev` before starting your debugger
 
 ### Testing
 
